@@ -13,7 +13,7 @@ from path_generation import GraphNode
 # Ge desired size
 #size = int(input('Enter desired size: '))
 # Scale it to a viewable size
-size = 50000
+size = 25000
 screen = startGraphics()
 
 # Generate Rooms

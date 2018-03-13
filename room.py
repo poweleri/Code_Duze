@@ -5,8 +5,8 @@ import numpy as np
 class Room:
     def __init__(self):#Create a new room
         # Each room when created has a random size between 2 and 10
-        self.length = random.randrange(2,11) * 20
-        self.width = random.randrange(2,11) * 20
+        self.length = random.randrange(2,11) * 5
+        self.width = random.randrange(2,11) * 5
         # The starting positions are 0 and 0
         self.pos = np.array([500,500])
         self.shape = pygame.Rect(self.pos, (self.width, self.length))
@@ -25,7 +25,7 @@ class Room:
                     move = -1
                 elif(z==2): # Go positive
                     move = 1
-            move *= 20
+            move *= 5
             self.pos[0] += move
             self.shape = self.shape.move([move, 0])
         elif (r == 2): # push vertical
@@ -39,7 +39,7 @@ class Room:
                     move = -1
                 elif(z==2): # Go positive
                     move = 1
-            move *= 20
+            move *= 5
             self.pos[1] += move
             self.shape = self.shape.move([0, move])
 

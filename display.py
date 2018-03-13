@@ -44,25 +44,25 @@ def displayHalls(screen, nodes):
 				
 			if (right):
 				if (above):
-					pygame.draw.lines(screen, white, False, (i.room.shape.midright, [j.shape.centerx, i.room.shape.centery], j.shape.midbottom), 6)
+					pygame.draw.lines(screen, white, False, (i.room.shape.midright, [j.shape.centerx, i.room.shape.centery], j.shape.midbottom), 3)
 				elif (below):
-					pygame.draw.lines(screen, white, False, (i.room.shape.midright,[j.shape.centerx, i.room.shape.centery], j.shape.midtop), 6)
+					pygame.draw.lines(screen, white, False, (i.room.shape.midright,[j.shape.centerx, i.room.shape.centery], j.shape.midtop), 3)
 				else:
-					pygame.draw.line(screen, white, i.room.shape.midright, (j.shape.left, i.room.shape.centery), 6)
+					pygame.draw.line(screen, white, i.room.shape.midright, (j.shape.left, i.room.shape.centery), 3)
 				
 			elif (left):
 				if (above):
-					pygame.draw.lines(screen, white, False, (i.room.shape.midleft, [j.shape.centerx, i.room.shape.centery], j.shape.midbottom), 6)
+					pygame.draw.lines(screen, white, False, (i.room.shape.midleft, [j.shape.centerx, i.room.shape.centery], j.shape.midbottom), 3)
 				elif (below):
-					pygame.draw.lines(screen, white, False, (i.room.shape.midleft, [j.shape.centerx, i.room.shape.centery], j.shape.midtop), 6)
+					pygame.draw.lines(screen, white, False, (i.room.shape.midleft, [j.shape.centerx, i.room.shape.centery], j.shape.midtop), 3)
 				else:
-					pygame.draw.line(screen, white, i.room.shape.midleft, (j.shape.right, i.room.shape.centery), 6)
+					pygame.draw.line(screen, white, i.room.shape.midleft, (j.shape.right, i.room.shape.centery), 3)
 					
 			else:
 				if (above):
-					pygame.draw.line(screen, white, i.room.shape.midtop, (i.room.shape.centerx, j.shape.bottom), 6)
+					pygame.draw.line(screen, white, i.room.shape.midtop, (i.room.shape.centerx, j.shape.bottom), 3)
 				else:
-					pygame.draw.line(screen, white, i.room.shape.midbottom, (i.room.shape.centerx, j.shape.top), 6)
+					pygame.draw.line(screen, white, i.room.shape.midbottom, (i.room.shape.centerx, j.shape.top), 3)
 			# extraRight = False
 			# extraLeft = False
 		

@@ -1,11 +1,12 @@
 import numpy as np
 import random
+import config
 from room import Room
 
-def generateRooms(size): # Create the needed number of Rooms
+def generateRooms(): # Create the needed number of Rooms
     area = 0
     rooms = []
-    while(area < size): # Stop generating when we reach the requested area
+    while(area < config.dunSize): # Stop generating when we reach the requested area
         room = Room()
         if (area == 0):
             rooms = [room]

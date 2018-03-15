@@ -3,11 +3,12 @@ import numpy as np
 from room import Room
 from path_generation import GraphNode
 import pygame
+import config
 
 def startGraphics():
     # Intialize graphics
     pygame.display.init()
-    screen = pygame.display.set_mode((1000, 1000))
+    screen = pygame.display.set_mode((config.screenSize, config.screenSize))
     return screen
 
 def displayRooms(screen, rooms): # Display rooms on the screen

@@ -2,6 +2,7 @@ import numpy as np
 from operator import itemgetter, attrgetter
 from sets import Set
 from room import Room
+import config
 
 class Node(object):
 	def __init__(self, room):

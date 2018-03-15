@@ -1,5 +1,6 @@
 # Import Libraries
 import numpy as np
+import config
 from generate import generateRooms
 from generate import moveRooms
 from display import displayRooms
@@ -10,15 +11,16 @@ from room import Room
 from path_generation import createMST
 from path_generation import GraphNode
 
+config.init()
+
 # Ge desired size
 #size = int(input('Enter desired size: '))
 # Scale it to a viewable size
-size = 25000
 screen = startGraphics()
 
 # Generate Rooms
 print("Generating Rooms")
-rooms = generateRooms(size)
+rooms = generateRooms()
 #displayRooms(screen, rooms)
 
 # Move Rooms

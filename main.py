@@ -1,6 +1,10 @@
 # Import Libraries
 import numpy as np
 import config
+import units
+import display
+import pygame
+
 from generate import generateRooms
 from generate import moveRooms
 from display import displayRooms
@@ -35,10 +39,41 @@ halls = createMST(rooms)
 displayMST(screen, halls)
 	
 displayHalls(screen, halls)
+
+
+
+# Begin working on game logic (and game loop)	
+
+import event
+
+player = units.player(500, 500)
+
+display.register(player)
+
+def quit(e):
+	global run
+	if e.type == pygame.QUIT:
+		run = False
+	elif e.type == pygame.KEYUP:
+		if ((e.key == pygame.K_F4) and
+		   (e.mod and pygame.KMOD_ALT)):
+			run = False
 	
+	
+	
+	
+event.register(player.handler)
+event.register(quit)
+
+clock = pygame.time.Clock()
 playing = True
 
 while(playing):
-    play = input("")
-    if (play == 'q'):
-        playing = False
+
+	clock.tick(30)
+
+	event.update()
+	player.update()
+	display.update()
+	
+pygame.display.quit()

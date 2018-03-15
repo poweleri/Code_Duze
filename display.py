@@ -5,12 +5,43 @@ from path_generation import GraphNode
 import pygame
 import config
 
-def startGraphics():
-    # Intialize graphics
-    pygame.display.init()
-    screen = pygame.display.set_mode((config.screenSize, config.screenSize))
-    return screen
+screen = None
+renderables = []
+assets = {}
 
+
+def update():
+	global screen, renderables
+	screen.fill((0,0,0))
+	
+	for r in renderables:
+		r.render(screen)
+		
+	
+	pygame.display.flip()
+
+def register(renderable):
+	global renderables
+	if renderable not in renderables:
+		renderables.append(renderable)
+		
+def load(file):
+	global assets
+	if file in assets:
+		return assets[file]
+	else:
+		image = pygame.image.load(file)
+		assets[file] = image
+		return image
+
+def startGraphics():
+    # Initialize graphics
+ global screen
+ pygame.display.init()
+ screen = pygame.display.set_mode((config.screenSize, config.screenSize))
+ return screen
+	
+	
 def displayRooms(screen, rooms): # Display rooms on the screen
     blue=(0,0,255)
     for i in range(len(rooms)):

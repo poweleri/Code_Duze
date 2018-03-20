@@ -36,12 +36,12 @@ displayRooms(screen, rooms)
 print("Connect Rooms")
 halls = createMST(rooms)
 
-displayMST(screen, halls)
+#displayMST(screen, halls)
 	
 displayHalls(screen, halls)
 
 
-
+pygame.image.save(screen, "map.png")
 # Begin working on game logic (and game loop)	
 
 import event

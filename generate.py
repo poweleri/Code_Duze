@@ -32,10 +32,8 @@ def moveRooms(rooms):# Move Rooms into correct positions
         push = random.randrange(1,6)
         for w in range(push):
             rooms[i].pushOut()
-			
 
-      	for z in range(i): # Check all rooms before it
-            #print(z)
+        for z in range(i):
             overlapping = rooms[i].shape.colliderect(rooms[z].shape)
             contains = rooms[i].shape.contains(rooms[z].shape)
             while (overlapping or contains):# If overlapping push it out.

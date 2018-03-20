@@ -43,9 +43,9 @@ def startGraphics():
 	
 	
 def displayRooms(screen, rooms): # Display rooms on the screen
-    blue=(0,0,255)
+    white=(255,255,255)
     for i in range(len(rooms)):
-        pygame.draw.rect(screen, blue, (rooms[i].pos[0], rooms[i].pos[1], rooms[i].width, rooms[i].length), 1)
+        pygame.draw.rect(screen, white, (rooms[i].pos[0], rooms[i].pos[1], rooms[i].width, rooms[i].length), 0)
         pygame.display.update()
 		
 def displayMST(screen, nodes):

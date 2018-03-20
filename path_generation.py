@@ -36,8 +36,8 @@ def createNodes(rooms):
 	
 def getEdges(nodes):
 	edges = []
-	for x in xrange(len(nodes)):
-		for y in xrange(x+1, len(nodes)):
+	for x in range(len(nodes)):
+		for y in range(x+1, len(nodes)):
 			edge = Edge(nodes[x], nodes[y])
 			# print ("-- From --")
 			# nodes[x].room.roomInfo()

@@ -33,24 +33,24 @@ class player (unit):
 	def handler(self, event):
 		if event.type == pygame.KEYDOWN:
 			if event.key == pygame.K_UP:
-				self.y -= 1
-				if self.y < 0:
-					self.y = 0
+				# self.y -= 1
+				# if self.y < 0:
+					# self.y = 0
 				self.facing = "up"
 			elif event.key == pygame.K_DOWN:
-				self.y += 1
-				if self.y > (999 - 16):
-					self.y = 999 - 16
+				# self.y += 1
+				# if self.y > (999 - 16):
+					# self.y = 999 - 16
 				self.facing = "down"
 			elif event.key == pygame.K_LEFT:
-				self.x -= 1
-				if self.x < 0:
-					self.x = 0
+				# self.x -= 1
+				# if self.x < 0:
+					# self.x = 0
 				self.facing = "left"
 			elif event.key == pygame.K_RIGHT:
-				self.x += 1
-				if self.x > (999 - 16):
-					self.x = 999 - 16
+				# self.x += 1
+				# if self.x > (999 - 16):
+					# self.x = 999 - 16
 				self.facing = "right"
 			self.moving = True
 			

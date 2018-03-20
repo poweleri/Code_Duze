@@ -1,13 +1,13 @@
 import numpy as np
 from operator import itemgetter, attrgetter
-from sets import Set
+#from sets import set
 from room import Room
 import config
 
 class Node(object):
 	def __init__(self, room):
 		self.room = room
-		self.connections = Set()
+		self.connections = set()
 		self.connections.add(room)
 		
 class Edge (object):
@@ -62,7 +62,7 @@ def createMST(rooms):
 	edges = getEdges(nodes)
 	
 	tempGraph = []
-	compareSet = Set()
+	compareSet = set()
 	
 	for x in nodes:
 		compareSet.add(x)

@@ -3,6 +3,7 @@ import numpy as np
 import config
 import units
 import display
+import audio
 import pygame
 
 from generate import generateRooms
@@ -42,6 +43,7 @@ displayHalls(screen, halls)
 
 
 pygame.image.save(screen, "map.png")
+display.setMap()
 # Begin working on game logic (and game loop)	
 
 import event
@@ -51,20 +53,22 @@ player = units.player(500, 500)
 display.register(player)
 
 def quit(e):
-	global run
+	global playing
 	if e.type == pygame.QUIT:
-		run = False
+		playing = False
 	elif e.type == pygame.KEYUP:
 		if ((e.key == pygame.K_F4) and
 		   (e.mod and pygame.KMOD_ALT)):
-			run = False
+			playing = False
 	
 	
 	
 	
 event.register(player.handler)
 event.register(quit)
+event.register(audio.handler)
 
+audio.init()
 clock = pygame.time.Clock()
 playing = True
 

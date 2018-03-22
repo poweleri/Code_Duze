@@ -8,17 +8,23 @@ import config
 screen = None
 renderables = []
 assets = {}
-
+background = None
 
 def update():
-	global screen, renderables
+	global screen, renderables, background
 	screen.fill((0,0,0))
+	if background:
+		screen.blit(background,(0,0))
 	
 	for r in renderables:
-		r.render(screen)
+		r.render(background)
 		
 	
 	pygame.display.flip()
+
+def setMap(back = "map.png"):
+	global background
+	background = pygame.image.load('map.png')
 
 def register(renderable):
 	global renderables

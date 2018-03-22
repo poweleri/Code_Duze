@@ -9,4 +9,4 @@ def init():
 
     # Dungeon Area to Achieve
     global dunSize
-    dunSize = 1000 * (dunMultiply * dunMultiply)
+    dunSize = 3000 * (dunMultiply * dunMultiply)

@@ -16,29 +16,25 @@ def generateRooms(): # Create the needed number of Rooms
         #room.roomInfo()
     return rooms
 
-def moveRooms(rooms):# Move Rooms into correct positions
+# This function will ensure the room spaced out
+def moveRooms(rooms):
 
+    # Must loop through every room except the first one.
     for i in range(1, len(rooms)):
-        for z in range(i): # Check all rooms before it
-            overlapping = rooms[i].shape.colliderect(rooms[z].shape)
-            contains = rooms[i].shape.contains(rooms[z].shape)
-            while (overlapping or contains):# If overlapping push it out.
-                #print("Overlap Detected " + str(i) + " " + str(z))
-                rooms[i].pushOut()
-                overlapping = rooms[i].shape.colliderect(rooms[z].shape)
-                contains = rooms[i].shape.contains(rooms[z].shape)
-                
-        # Push out a random amount of times to create spacing.abs
-        push = random.randrange(1,6)
-        for w in range(push):
-            rooms[i].pushOut()         
+        # Each room will push out a random amount of times. 0-5
+        push = random.randrange(0,3)
 
-        for z in range(i):
-            overlapping = rooms[i].shape.colliderect(rooms[z].shape)
-            contains = rooms[i].shape.contains(rooms[z].shape)
-            while (overlapping or contains):# If overlapping push it out.
-                #print("Overlap Detected " + str(i) + " " + str(z))
-                rooms[i].pushOut()
-                overlapping = rooms[i].shape.colliderect(rooms[z].shape)
-                contains = rooms[i].shape.contains(rooms[z].shape)
+        while(push > -1):
+        # We also push out everytime there is an overlap detected
+        # Checking for overlap we look at each room before the current room
+            for z in range(i):
+                overlap = rooms[i].shape.colliderect(rooms[z].shape)
+                # if there is an overlap we need to push an extra time.
+                if(overlap):
+                    push += 1
+                    z = i# Exit for loop
+            
+            rooms[i].pushOut()
+            push -= 1
+
     return rooms

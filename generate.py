@@ -22,7 +22,7 @@ def moveRooms(rooms):
     # Must loop through every room except the first one.
     for i in range(1, len(rooms)):
         # Each room will push out a random amount of times. 0-5
-        push = random.randrange(0,3)
+        push = random.randrange(0,1)
 
         while(push > -1):
         # We also push out everytime there is an overlap detected
@@ -32,7 +32,7 @@ def moveRooms(rooms):
                 # if there is an overlap we need to push an extra time.
                 if(overlap):
                     push += 1
-                    z = i# Exit for loop
+                    break# Exit for loop
             
             rooms[i].pushOut()
             push -= 1

@@ -10,7 +10,7 @@ class Room:
         self.width = random.randrange(2,11) * config.dunMultiply
         # The starting positions are 0 and 0
         self.pos = np.array([config.screenSize / 2,config.screenSize / 2])
-        self.shape = pygame.Rect(self.pos, (self.width, self.length))
+        self.shape = pygame.Rect(self.pos, (self.width + 1, self.length + 1))
 
     def pushOut(self):#Push the room outwards from center
         r = random.randrange(1,3)

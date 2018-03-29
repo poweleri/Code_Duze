@@ -66,6 +66,7 @@ display.register(player)
 event.register(player.handler)
 event.register(quit)
 event.register(audio.handler)
+event.register(display.handler)
 
 audio.init()
 clock = pygame.time.Clock()

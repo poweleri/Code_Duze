@@ -9,22 +9,38 @@ screen = None
 renderables = []
 assets = {}
 background = None
+point = [0,0]
 
 def update():
 	global screen, renderables, background
 	screen.fill((0,0,0))
 	if background:
-		screen.blit(background,(0,0))
+		screen.blit(background, point)
 	
 	for r in renderables:
-		r.render(background)
+		r.render(screen)
 		
-	
 	pygame.display.flip()
 
+def handler(event):
+	global point
+	if event.type == pygame.KEYDOWN:
+		if event.key == pygame.K_UP:
+			point[1] += 1
+		elif event.key == pygame.K_DOWN:
+			point[1] -= 1
+		elif event.key == pygame.K_LEFT:
+			point[0] += 1
+		elif event.key == pygame.K_RIGHT:
+			point[0] -= 1
+
+
+
 def setMap(back = "map.png"):
-	global background
+	global background, point
 	background = pygame.image.load('map.png')
+	# background = pygame.transform.rotozoom(background, 0, 2.5)
+	# point = [background.get_rect().center[0], background.get_rect().center[1]]
 
 def register(renderable):
 	global renderables

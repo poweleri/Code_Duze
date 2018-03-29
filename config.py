@@ -19,8 +19,8 @@ def init():
 # Implement Scaling                 | Easy          | 3/29      | Eric      | 
 # Implement Moving                  | Easy          | 3/29      | Eric      | 
 # Input Tiles                       | Medium        | 3/29      | Eric      | 
-# Green Dots on first room            | Easy          | 3/29    | Bobby     | 
-# Red Dot in last room              | Easy          | 3/29      | Bobby     | 
+# Green Dots on first room            | Easy          | 3/29    | Bobby     | Done 
+# Red Dot in last room              | Easy          | 3/29      | Bobby     | Done
 # Map in first room                 | Easy          | 3/29      | Eric      | 
 # Can't Walk through walls          | Medium        | 3/31      | Eric      | 
     # Ask others?

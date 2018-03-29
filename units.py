@@ -27,7 +27,7 @@ class player (unit):
 		
 	def render(self, surface):
 		surface.blit(self.spritesheet, 
-			         (self.x, self.y, 16, 16),
+			         (500, 500, 16, 16),
 					 self.mapping[self.facing][int(self.frame)])
 	
 	def handler(self, event):

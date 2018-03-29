@@ -9,6 +9,7 @@ def generateRooms(): # Create the needed number of Rooms
     while(area < config.dunSize): # Stop generating when we reach the requested area
         room = Room()
         if (area == 0):
+            room.firstRoom()
             rooms = [room]
         else:
             rooms.append(room)

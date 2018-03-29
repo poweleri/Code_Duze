@@ -39,8 +39,8 @@ def handler(event):
 def setMap(back = "map.png"):
 	global background, point
 	background = pygame.image.load('map.png')
-	# background = pygame.transform.rotozoom(background, 0, 2.5)
-	# point = [background.get_rect().center[0], background.get_rect().center[1]]
+	background = pygame.transform.rotozoom(background, 0, 2)
+	point = [-500, -500]
 
 def register(renderable):
 	global renderables

@@ -15,8 +15,7 @@ def init():
 # To do
 # Item                              | Difficulty    | Timeframe | Assigned  | Status
 # Correct the push out spacing      | Medium        | 3/29      | Bobby     | Done
-# Save Image if Expanding offscreen | Hard          | 3/29      | Bobby     | 
-    # Other Surface?
+# Save Image if Expanding offscreen | Hard          | 3/29      | Bobby     | Done
 # Implement Scaling                 | Easy          | 3/29      | Eric      | 
 # Implement Moving                  | Easy          | 3/29      | Eric      | 
 # Input Tiles                       | Medium        | 3/29      | Eric      | 

@@ -6,44 +6,39 @@ import display
 import audio
 import pygame
 
-from generate import generateRooms
-from generate import moveRooms
-from display import displayRooms
-from display import startGraphics
-from display import displayMST
-from display import displayHalls
+from generate import *
+from display import *
 from room import Room
-from path_generation import createMST
-from path_generation import GraphNode
+from path_generation import *
 
+
+# Create the config settings for the game
 config.init()
 
-# Ge desired size
-#size = int(input('Enter desired size: '))
 # Scale it to a viewable size
 screen = startGraphics()
 
 # Generate Rooms
 print("Generating Rooms")
 rooms = generateRooms()
-#displayRooms(screen, rooms)
 
 # Move Rooms
 print("Moving Rooms")
 rooms = moveRooms(rooms)
 displayRooms(screen, rooms)
+# Display which room is first and last
+startEndRooms(screen, rooms)
 
 # Connect Rooms
 print("Connect Rooms")
 halls = createMST(rooms)
-
-#displayMST(screen, halls)
-	
 displayHalls(screen, halls)
+# Used to debug pathing
+#displayMST(screen, halls)
 
-
+# Save the generated map to an editable image
 pygame.image.save(screen, "map.png")
-display.setMap()
+display.setMap("map.png")
 # Begin working on game logic (and game loop)	
 
 import event

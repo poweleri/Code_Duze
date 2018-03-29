@@ -47,7 +47,14 @@ def startGraphics():
  screen = pygame.display.set_mode((config.screenSize, config.screenSize))
  return screen
 	
-	
+def startEndRooms(screen, rooms): # Used to create the beginning and end points for the map
+	red = (255,0,0)
+	blue = (0,0,255)
+	doorSize = config.dunMultiply * 2
+	pygame.draw.rect(screen, red, (rooms[0].pos[0], rooms[0].pos[1], doorSize, doorSize), 0)
+	pygame.draw.rect(screen, blue, (rooms[len(rooms) - 1].pos[0], rooms[len(rooms) - 1].pos[1], doorSize, doorSize), 0)
+
+
 def displayRooms(screen, rooms): # Display rooms on the screen
     white=(255,255,255)
     for i in range(len(rooms)):
@@ -101,53 +108,5 @@ def displayHalls(screen, nodes):
 					pygame.draw.line(screen, white, i.room.shape.midtop, (i.room.shape.centerx, j.shape.bottom), 3)
 				else:
 					pygame.draw.line(screen, white, i.room.shape.midbottom, (i.room.shape.centerx, j.shape.top), 3)
-			# extraRight = False
-			# extraLeft = False
-		
-			# if (i.room.shape.centerx < j.shape.left):
-				# print("Neighbor is to the right")
-				# pygame.draw.rect(screen, white, (i.room.shape.midright, (j.shape.left - i.room.shape.right, 10)))
-				# extraRight = True
-				# # points.append([i.room.pos[0] + i.room.width, y])
-				# # points.append([i.room.pos[0] + i.room.width, y + 20])
-				# # points.append([i.room.pos[0] + j.width, y])
-				# # points.append([i.room.pos[0] + j.width, y + 20])
-				
-			# elif (i.room.shape.centerx > j.shape.right):
-				# print("Neighbor is to the left")
-				# pygame.draw.rect(screen, white, (j.shape.midright, (i.room.shape.left - j.shape.right, 10)))
-				# extraLeft = True
-				# # pygame.draw.rect(screen, white, (j.pos[0] + (j.width / 2.0), y, j.pos[0] + (j.width / 2.0) - i.room.width, 10))
-			# else:
-				# print("Neighbor matches on x-axis")
-				
-				
-			# if (i.room.shape.centery < j.shape.bottom):
-				# print("Neighbor is below")
-				# if (extraRight):
-					# pygame.draw.rect(screen, white, (j.shape.left, i.room.shape.centery, (j.shape.centerx - j.shape.left), 10))
-					# pygame.draw.rect(screen, white, (j.shape.midbottom, (10, i.room.shape.centerx - j.shape.bottom)))
-				# elif (extraLeft):
-					# pygame.draw.rect(screen, white, (j.shape.centery, i.room.shape.centery, (j.shape.right - j.shape.centerx), 10))
-					# pygame.draw.rect(screen, white, (j.shape.midbottom, (10, i.room.shape.centerx - j.shape.bottom)))
-				# else:
-					# pygame.draw.rect(screen, white, (j.shape.midbottom, (10, i.room.shape.top - j.shape.bottom)))
-					
-			# elif (i.room.shape.centery > j.shape.top):
-				# print("Neighbor is above")
-				# if (extraRight):
-					# pygame.draw.rect(screen, white, (j.shape.left, i.room.shape.centery, (j.shape.centerx - j.shape.left), 10))
-					# pygame.draw.rect(screen, white, (j.shape.midtop, (10, j.shape.top - i.room.shape.centerx)))
-				# elif (extraLeft):
-					# pygame.draw.rect(screen, white, (j.shape.centery, i.room.shape.centery, (j.shape.right - j.shape.centerx), 10))
-					# pygame.draw.rect(screen, white, (j.shape.midtop, (10, j.shape.top - i.room.shape.centerx)))
-				# else:
-					# pygame.draw.rect(screen, white, (j.shape.midtop, (10, j.shape.top - i.room.shape.bottom)))
-			# # if (y > j.pos[1]):
-				# # 
-			# # elif (y < j.pos[1] + j.length):
-				# # print("Neighbor is above")
-			# # else:
-				# # print("Neighbor matches on y-axis")
 				
 			pygame.display.update()

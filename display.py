@@ -26,21 +26,23 @@ def handler(event):
 	global point
 	if event.type == pygame.KEYDOWN:
 		if event.key == pygame.K_UP:
-			point[1] += 1
+			point[1] += config.dunMultiply
 		elif event.key == pygame.K_DOWN:
-			point[1] -= 1
+			point[1] -= config.dunMultiply
 		elif event.key == pygame.K_LEFT:
-			point[0] += 1
+			point[0] += config.dunMultiply
 		elif event.key == pygame.K_RIGHT:
-			point[0] -= 1
+			point[0] -= config.dunMultiply
 
 
 
 def setMap(back = "map.png"):
 	global background, point
 	background = pygame.image.load('map.png')
-	background = pygame.transform.rotozoom(background, 0, 2)
-	# point = [background.get_rect().center[0], background.get_rect().center[1]]
+	scale = 4
+	background = pygame.transform.rotozoom(background, 0, scale)
+	point = [(config.screenSize/2) - (scale * config.screenSize/2), (config.screenSize/2) - (scale * config.screenSize/2)]
+
 
 def register(renderable):
 	global renderables

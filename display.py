@@ -39,7 +39,7 @@ def handler(event):
 def setMap(back = "map.png"):
 	global background, point
 	background = pygame.image.load('map.png')
-	# background = pygame.transform.rotozoom(background, 0, 2.5)
+	background = pygame.transform.rotozoom(background, 0, 2)
 	# point = [background.get_rect().center[0], background.get_rect().center[1]]
 
 def register(renderable):
@@ -105,24 +105,24 @@ def displayHalls(screen, nodes):
 				
 			if (right):
 				if (above):
-					pygame.draw.lines(screen, white, False, (i.room.shape.midright, [j.shape.centerx, i.room.shape.centery], j.shape.midbottom), 3)
+					pygame.draw.lines(screen, white, False, (i.room.shape.midright, [j.shape.centerx, i.room.shape.centery], j.shape.midbottom), config.dunMultiply)
 				elif (below):
-					pygame.draw.lines(screen, white, False, (i.room.shape.midright,[j.shape.centerx, i.room.shape.centery], j.shape.midtop), 3)
+					pygame.draw.lines(screen, white, False, (i.room.shape.midright,[j.shape.centerx, i.room.shape.centery], j.shape.midtop), config.dunMultiply)
 				else:
-					pygame.draw.line(screen, white, i.room.shape.midright, (j.shape.left, i.room.shape.centery), 3)
+					pygame.draw.line(screen, white, i.room.shape.midright, (j.shape.left, i.room.shape.centery), config.dunMultiply)
 				
 			elif (left):
 				if (above):
-					pygame.draw.lines(screen, white, False, (i.room.shape.midleft, [j.shape.centerx, i.room.shape.centery], j.shape.midbottom), 3)
+					pygame.draw.lines(screen, white, False, (i.room.shape.midleft, [j.shape.centerx, i.room.shape.centery], j.shape.midbottom), config.dunMultiply)
 				elif (below):
-					pygame.draw.lines(screen, white, False, (i.room.shape.midleft, [j.shape.centerx, i.room.shape.centery], j.shape.midtop), 3)
+					pygame.draw.lines(screen, white, False, (i.room.shape.midleft, [j.shape.centerx, i.room.shape.centery], j.shape.midtop), config.dunMultiply)
 				else:
-					pygame.draw.line(screen, white, i.room.shape.midleft, (j.shape.right, i.room.shape.centery), 3)
+					pygame.draw.line(screen, white, i.room.shape.midleft, (j.shape.right, i.room.shape.centery), config.dunMultiply)
 					
 			else:
 				if (above):
-					pygame.draw.line(screen, white, i.room.shape.midtop, (i.room.shape.centerx, j.shape.bottom), 3)
+					pygame.draw.line(screen, white, i.room.shape.midtop, (i.room.shape.centerx, j.shape.bottom), config.dunMultiply)
 				else:
-					pygame.draw.line(screen, white, i.room.shape.midbottom, (i.room.shape.centerx, j.shape.top), 3)
+					pygame.draw.line(screen, white, i.room.shape.midbottom, (i.room.shape.centerx, j.shape.top), config.dunMultiply)
 				
 			pygame.display.update()

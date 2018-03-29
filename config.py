@@ -5,7 +5,7 @@ def init():
 
     # Multiplier for Dungeon to make the rooms larger than 1 by 1 pixels
     global dunMultiply
-    dunMultiply = 5
+    dunMultiply = 4
 
     # Dungeon Area to Achieve
     global dunSize

@@ -11,41 +11,45 @@ from display import *
 from room import Room
 from path_generation import *
 
+# This function will do all of the necessary loading
+def loading():
+	# Create the config settings for the game
+	config.init()
 
-# Create the config settings for the game
-config.init()
+	# Scale it to a viewable size
+	screen = startGraphics()
 
-# Scale it to a viewable size
-screen = startGraphics()
+	# Generate Rooms
+	print("Generating Rooms")
+	rooms = generateRooms()
 
-# Generate Rooms
-print("Generating Rooms")
-rooms = generateRooms()
+	# Move Rooms
+	print("Moving Rooms")
+	rooms = moveRooms(rooms)
+	displayRooms(screen, rooms)
 
-# Move Rooms
-print("Moving Rooms")
-rooms = moveRooms(rooms)
-displayRooms(screen, rooms)
-# Display which room is first and last
-startEndRooms(screen, rooms)
+	# Connect Rooms
+	print("Connect Rooms")
+	halls = createMST(rooms)
+	displayHalls(screen, halls)
+	# Used to debug pathing
+	#displayMST(screen, halls)
 
-# Connect Rooms
-print("Connect Rooms")
-halls = createMST(rooms)
-displayHalls(screen, halls)
-# Used to debug pathing
-#displayMST(screen, halls)
+	# Display which room is first and last
+	startEndRooms(screen, rooms)
 
-# Save the generated map to an editable image
-pygame.image.save(screen, "map.png")
-display.setMap("map.png")
-# Begin working on game logic (and game loop)	
+	# Save the generated map to an editable image
+	pygame.image.save(screen, "map.png")
+	display.setMap("map.png")
 
+
+# Load the Map 
+loading()
+
+# Begin game and game loop
 import event
 
-player = units.player(500, 500)
-
-display.register(player)
+playing = True
 
 def quit(e):
 	global playing
@@ -55,18 +59,16 @@ def quit(e):
 		if ((e.key == pygame.K_F4) and
 		   (e.mod and pygame.KMOD_ALT)):
 			playing = False
-	
-	
-	
-	
+
+player = units.player(500, 500)
+display.register(player)
+
 event.register(player.handler)
 event.register(quit)
 event.register(audio.handler)
 
 audio.init()
 clock = pygame.time.Clock()
-playing = True
-
 while(playing):
 
 	clock.tick(30)

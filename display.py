@@ -12,6 +12,7 @@ background = None
 point = [0,0]
 flash = ("upFlash", "downFlash", "leftFlash", "rightFlash")
 direction = 1
+displayMap = False
 
 def update():
 	global screen, renderables, background
@@ -24,10 +25,13 @@ def update():
 	for r in renderables:
 		r.render(screen)
 		
+	if displayMap:
+		screen.blit(load("map.png"), (0,0))
+		
 	pygame.display.flip()
 
 def handler(event):
-	global point, direction
+	global point, direction, displayMap
 	if event.type == pygame.KEYDOWN:
 		if event.key == pygame.K_UP:
 			point[1] += config.dunMultiply
@@ -42,6 +46,13 @@ def handler(event):
 			point[0] -= config.dunMultiply
 			direction = 3
 
+		# And collision
+		if event.key == pygame.K_m: 
+			displayMap = True
+	
+	if event.type == pygame.KEYUP:
+		if event.key == pygame.K_m:
+			displayMap = False
 
 def setMap(back = "map.png"):
 	global background, point

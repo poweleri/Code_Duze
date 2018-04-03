@@ -1,6 +1,6 @@
 import random
-import numpy as np
 from room import Room
+import numpy as np
 from path_generation import GraphNode
 import pygame
 import config
@@ -10,6 +10,8 @@ renderables = []
 assets = {}
 background = None
 point = [0,0]
+flash = ("upFlash", "downFlash", "leftFlash", "rightFlash")
+direction = 1
 
 def update():
 	global screen, renderables, background
@@ -17,23 +19,28 @@ def update():
 	if background:
 		screen.blit(background, point)
 	
+	screen.blit(load(flash[direction]), (0,0))
+	
 	for r in renderables:
 		r.render(screen)
 		
 	pygame.display.flip()
 
 def handler(event):
-	global point
+	global point, direction
 	if event.type == pygame.KEYDOWN:
 		if event.key == pygame.K_UP:
 			point[1] += config.dunMultiply
+			direction = 0
 		elif event.key == pygame.K_DOWN:
 			point[1] -= config.dunMultiply
+			direction = 1
 		elif event.key == pygame.K_LEFT:
 			point[0] += config.dunMultiply
+			direction = 2
 		elif event.key == pygame.K_RIGHT:
 			point[0] -= config.dunMultiply
-
+			direction = 3
 
 
 def setMap(back = "map.png"):
@@ -49,6 +56,15 @@ def register(renderable):
 	if renderable not in renderables:
 		renderables.append(renderable)
 		
+def loadFlash():
+	global assets
+	leftFlash = pygame.image.load("ellipse.png")
+	assets["leftFlash"] = leftFlash
+	assets["downFlash"] = pygame.transform.rotate(leftFlash, 90)
+	assets["rightFlash"] = pygame.transform.rotate(leftFlash, 180)
+	assets["upFlash"] = pygame.transform.rotate(leftFlash, 270)
+	
+		
 def load(file):
 	global assets
 	if file in assets:
@@ -57,7 +73,7 @@ def load(file):
 		image = pygame.image.load(file)
 		assets[file] = image
 		return image
-
+		
 def startGraphics():
     # Initialize graphics
  global screen

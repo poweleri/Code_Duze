@@ -41,6 +41,7 @@ def loading():
 	# Save the generated map to an editable image
 	pygame.image.save(screen, "map.png")
 	display.setMap("map.png")
+	display.loadFlash()
 
 
 # Load the Map 

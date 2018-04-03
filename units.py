@@ -18,7 +18,7 @@ class player (unit):
 			"left" : createTupleList(54)
 		}
 		self.facing = "down"
-		self.speed = 0.5
+		self.speed = .5
 		self.moving = False
 		
 	def update(self):

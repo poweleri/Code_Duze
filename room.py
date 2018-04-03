@@ -45,8 +45,8 @@ class Room:
             self.shape = self.shape.move([0, move])
 
     def firstRoom(self):
-        self.length = 8 * config.dunMultiply
-        self.width = 8 * config.dunMultiply
+        self.length = 10 * config.dunMultiply
+        self.width = 10 * config.dunMultiply
         self.shape = pygame.Rect(self.pos, (self.width + 1, self.length + 1))
 
     def roomInfo(self):# Output all attributes of the room. Used for Debugging

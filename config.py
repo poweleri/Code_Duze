@@ -18,14 +18,13 @@ def init():
 # Save Image if Expanding offscreen | Hard          | 3/29      | Bobby     | Done
 # Implement Scaling                 | Easy          | 3/29      | Eric      | Done
 # Implement Moving                  | Easy          | 3/29      | Eric      | Done
-# Input Tiles                       | Medium        | 3/29      | Eric      | 
+# Input Tiles                       | Medium        | 3/29      | Eric      | ----
 # Green Dots on first room            | Easy          | 3/29    | Bobby     | Done 
 # Red Dot in last room              | Easy          | 3/29      | Bobby     | Done
-# Map in first room                 | Easy          | 3/29      | Eric      | 
-# Can't Walk through walls          | Medium        | 3/31      | Eric      | 
-    # Ask others?
-# Terrain only when Flashlight      | Medium        | 3/31      | Eric      | 
-# Menu                              | Easy          | 3/31      | Bobby     | 
+# Map in first room                 | Easy          | 4/5       | Eric      | 
+# Can't Walk through walls          | Medium        | 4/5       | Bobby     | 
+# Terrain only when Flashlight      | Medium        | 3/31      | Eric      | Done
+# Menu                              | Easy          | 4/11      | Bobby     | ----
     # Restart
     # Quit
     # How To

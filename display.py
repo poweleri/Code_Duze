@@ -41,7 +41,7 @@ def setMap(back = "map.png"):
 	background = pygame.image.load('map.png')
 	scale = 4
 	background = pygame.transform.rotozoom(background, 0, scale)
-	point = [(config.screenSize/2) - (scale * config.screenSize/2), (config.screenSize/2) - (scale * config.screenSize/2)]
+	point = [(config.screenSize/2) - (scale * config.screenSize/2) - 16, (config.screenSize/2) - (scale * config.screenSize/2) - 16]
 
 
 def register(renderable):

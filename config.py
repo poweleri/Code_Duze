@@ -1,7 +1,7 @@
 def init():
     # Size of the user's screen
     global screenSize
-    screenSize = 1000
+    screenSize = 1024
 
     # Multiplier for Dungeon to make the rooms larger than 1 by 1 pixels
     global dunMultiply
@@ -16,8 +16,8 @@ def init():
 # Item                              | Difficulty    | Timeframe | Assigned  | Status
 # Correct the push out spacing      | Medium        | 3/29      | Bobby     | Done
 # Save Image if Expanding offscreen | Hard          | 3/29      | Bobby     | Done
-# Implement Scaling                 | Easy          | 3/29      | Eric      | 
-# Implement Moving                  | Easy          | 3/29      | Eric      | 
+# Implement Scaling                 | Easy          | 3/29      | Eric      | Done
+# Implement Moving                  | Easy          | 3/29      | Eric      | Done
 # Input Tiles                       | Medium        | 3/29      | Eric      | 
 # Green Dots on first room            | Easy          | 3/29    | Bobby     | Done 
 # Red Dot in last room              | Easy          | 3/29      | Bobby     | Done

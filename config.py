@@ -14,9 +14,9 @@ def init():
 
 # To do
 # Item                              | Difficulty    | Timeframe | Assigned  | Status
-# Map on Keybind + Red              | Medium        | 4/5       | Both      | 
-# Win Condition on Blue             | Medium        | 4/5       | Both      |
-# Can't walk through walls          | Medium        | 4/5       | Both      | 
+# Map on Keybind + Red              | Medium        | 4/5       | Eric      | 
+# Win Condition on Blue             | Medium        | 4/5       | Eric      |
+# Can't walk through walls          | Medium        | 4/5       | Bobby     | 
 # Instructions on startup && h      | Easy          | 4/5       | Bobby     |
-# Battery Life                      | Medium        | 4/5       | Bobby     | 
+
 

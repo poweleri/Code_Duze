@@ -13,6 +13,8 @@ point = [0,0]
 flash = ("upFlash", "downFlash", "leftFlash", "rightFlash")
 direction = 1
 displayMap = False
+back_mask = None
+player_mask = pygame.mask.Mask((16,16))
 
 def update():
 	global screen, renderables, background
@@ -31,20 +33,22 @@ def update():
 	pygame.display.flip()
 
 def handler(event):
-	global point, direction, displayMap
+	global point, direction, displayMap, player_mask, back_mask
 	if event.type == pygame.KEYDOWN:
-		if event.key == pygame.K_UP:
+		#if not back_mask.overlap(player_mask, (int(504 - point[0]), int(504 - point[1]))):
+		if event.key == pygame.K_UP and not back_mask.overlap(player_mask, (int(504 - point[0]), int(504 - point[1] - config.dunMultiply))):
 			point[1] += config.dunMultiply
 			direction = 0
-		elif event.key == pygame.K_DOWN:
+		elif event.key == pygame.K_DOWN and not back_mask.overlap(player_mask, (int(504 - point[0]), int(504 - point[1] + config.dunMultiply))):
 			point[1] -= config.dunMultiply
 			direction = 1
-		elif event.key == pygame.K_LEFT:
+		elif event.key == pygame.K_LEFT and not back_mask.overlap(player_mask, (int(504 - point[0] - config.dunMultiply), int(504 - point[1]))):
 			point[0] += config.dunMultiply
 			direction = 2
-		elif event.key == pygame.K_RIGHT:
+		elif event.key == pygame.K_RIGHT and not back_mask.overlap(player_mask, (int(504 - point[0] + config.dunMultiply), int(504 - point[1]))):
 			point[0] -= config.dunMultiply
 			direction = 3
+
 
 		# And collision
 		if event.key == pygame.K_m: 
@@ -55,13 +59,17 @@ def handler(event):
 			displayMap = False
 
 def setMap(back = "map.png"):
-	global background, point
+	global background, point, back_mask, player_mask
 	background = pygame.image.load('map.png')
 	scale = 4
 	background = pygame.transform.rotozoom(background, 0, scale)
 	point = [(config.screenSize/2) - (scale * config.screenSize/2) - 16, (config.screenSize/2) - (scale * config.screenSize/2) - 16]
+	black = (0,0,0)
 	white = (255,255,255)
-	background.set_colorkey(white)
+	background.set_colorkey(black)
+	back_mask = pygame.mask.from_threshold(background, black, (1,1,1,1))
+	#back_mask = pygame.mask.from_surface(background)
+	player_mask.fill()
 
 
 def register(renderable):

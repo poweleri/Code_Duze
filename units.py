@@ -20,7 +20,7 @@ class player (unit):
 		self.facing = "down"
 		self.speed = .5
 		self.moving = False
-		self.mask = pygame.mask.from_surface(self.spritesheet)
+		self.mask = pygame.mask.Mask((16,16))
 		
 	def update(self):
 		if self.moving:
@@ -28,7 +28,7 @@ class player (unit):
 		
 	def render(self, surface):
 		surface.blit(self.spritesheet, 
-			         (500, 500, 16, 16),
+			         (504, 504, 16, 16),
 					 self.mapping[self.facing][int(self.frame)])
 	
 	def handler(self, event):

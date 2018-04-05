@@ -20,6 +20,7 @@ class player (unit):
 		self.facing = "down"
 		self.speed = .5
 		self.moving = False
+		self.mask = pygame.mask.from_surface(self.spritesheet)
 		
 	def update(self):
 		if self.moving:
